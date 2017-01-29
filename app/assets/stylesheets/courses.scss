@@ -1,0 +1,40 @@
+// Place all the styles related to the Courses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.course {
+  table {
+    border-collapse: collapse;
+    .headers {
+      text-align: center;
+    }
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .list_description {
+    width: 60%;
+    dl {
+      margin: 0;
+      color: #2E2F30;
+      font-weight: bold;
+      font-size: larger;
+    }
+  }
+  .list_actions {
+    font-size: x-small;
+    text-align: right;
+    padding-left: 1em;
+  }
+
+  .list_line_even {
+    background: #DADADA;
+  }
+
+  .list_line_odd {
+    background: #666666;
+  }
+}
