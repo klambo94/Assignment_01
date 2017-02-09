@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spring 2017 Catalog</h1>
+<% cache @courses do %>
+  <%  @courses.each do |course|%>
+        <%cache course do%>
+          <div class="entry">
+            <h3><%=course.course_number%><br><%= course.course_name%></h3>
+            <%= sanitize(course.course_description) %>4efg
+            <h4>Week date: </h4><%= course.course_week_date %>
+            <h4>Time: </h4><%= course.course_time %>
+            <h4>Room number: </h4><%= course.course_room_number %>
+            <h4>Professor:</h4> <%= course.professor %>
+            <%= button_to 'Add Course', schedule_line_items_path(course_id: course) %>
+           </div>
+        <%end%>
+  <% end %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129181549) do
+ActiveRecord::Schema.define(version: 20170205174352) do
 
   create_table "courses", force: :cascade do |t|
     t.integer  "course_number"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 20170129181549) do
     t.string   "professor"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "detail_schedules", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schedule_line_items", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "detail_schedule_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "quantity",           default: 0
+    t.index ["course_id"], name: "index_schedule_line_items_on_course_id"
+    t.index ["detail_schedule_id"], name: "index_schedule_line_items_on_detail_schedule_id"
   end
 
 end

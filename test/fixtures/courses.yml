@@ -17,3 +17,12 @@ two:
   course_time: 2017-01-29 11:15:49
   course_room_number: 
   professor: MyString
+
+ppl:
+  course_number: 32659
+  course_name: Principles of Programming Languages
+  course_description: Class used to discover how programming languages are used in the world4
+  course_week_date: TR
+  course_time: 2017-01-01 11:15:49
+  course_room_number: 1009
+  professor: Schultz

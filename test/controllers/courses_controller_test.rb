@@ -3,6 +3,15 @@ require 'test_helper'
 class CoursesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @course = courses(:one)
+    @update = {
+        course_number: 2,
+        course_name: 'Sound Garden',
+        course_description: 'Lorem Ipsum',
+        course_week_date: 'TR',
+        course_time: '12:00',
+        course_room_number: 10,
+        professor: 'Lerry Renoylds'
+    }
   end
 
   test "should get index" do
@@ -17,7 +26,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create course" do
     assert_difference('Course.count') do
-      post courses_url, params: { course: { course_description: @course.course_description, course_name: @course.course_name, course_number: @course.course_number, course_room_number: @course.course_room_number, course_time: @course.course_time, course_week_date: @course.course_week_date, professor: @course.professor } }
+      post courses_url, params: { course: @update}
     end
 
     assert_redirected_to course_url(Course.last)
@@ -34,10 +43,16 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update course" do
-    patch course_url(@course), params: { course: { course_description: @course.course_description, course_name: @course.course_name, course_number: @course.course_number, course_room_number: @course.course_room_number, course_time: @course.course_time, course_week_date: @course.course_week_date, professor: @course.professor } }
+    patch course_url(@course), params: { course: @update }
     assert_redirected_to course_url(@course)
   end
 
+  test "can't delete course in detail schedule" do
+    assert_difference('Course.count', 0) do
+      delete course_url(courses(:two))
+    end
+    assert_redirected_to course_url
+  end
   test "should destroy course" do
     assert_difference('Course.count', -1) do
       delete course_url(@course)

@@ -1,0 +1,1 @@
+json.array! @schedule_line_items, partial: 'schedule_line_items/schedule_line_item', as: :schedule_line_item

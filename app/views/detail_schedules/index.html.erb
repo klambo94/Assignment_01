@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Detail Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detail_schedules.each do |detail_schedule| %>
+      <tr>
+        <td><%= link_to 'Show', detail_schedule %></td>
+        <td><%= link_to 'Edit', edit_detail_schedule_path(detail_schedule) %></td>
+        <td><%= link_to 'Destroy', detail_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detail Schedule', new_detail_schedule_path %>

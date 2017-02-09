@@ -1,0 +1,10 @@
+<p id="notice"><%=notice%></p>
+<h2>Your Detail Schedule</h2>
+<ul>
+  <%@detail_schedule.schedule_line_items.each do |item| %>
+  <li><%= item.course.course_number%>, <%= item.course.course_name%>,
+      <%= item.course.professor %>, <%= item.course.course_week_date %>,
+      <%= item.course.course_time %>, <%= item.course.course_room_number  %></li>
+      <% end %>
+</ul>
+

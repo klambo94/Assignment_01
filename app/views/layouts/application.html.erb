@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Assignment01</title>
+    <title>Register for Classes</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,18 @@
   </head>
 
   <body class='<%= controller.controller_name %>'>
-    <%= yield %>
+    <div id ="banner">
+      <span class="title"><%= @page_title %></span>
+    </div>
+    <div id="columns">
+      <div id="side">
+        <a href="" >Course Search</a>
+        <a href="">Schedule</a>
+        <a href="" >Register</a>
+      </div>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
   </body>
 </html>
